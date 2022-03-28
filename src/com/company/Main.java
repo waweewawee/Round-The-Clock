@@ -7,6 +7,22 @@ public class Main {
         //test
     }
 }
-class nogeentest{
+class Beurt{
+
+}
+
+class Spel{
+
+}
+
+class Dart{
+
+}
+
+class BerekeningStatistiek{
+
+}
+
+class StatistiekSpel{
 
 }
