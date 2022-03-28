@@ -7,3 +7,6 @@ public class Main {
         //test
     }
 }
+class nogeentest{
+
+}
