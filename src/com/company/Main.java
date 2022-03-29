@@ -1,4 +1,5 @@
 package com.company;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -8,47 +9,46 @@ public class Main {
         System.out.println();
         System.out.println("Start het spel? (ja/nee)");
 
-    String antwoordJaNee=scanner.nextLine();
+    String antwoordJaNee = scanner.nextLine();
     switch(antwoordJaNee){
         case "ja":
-            int i=0;
-            int aantalRaak=0;
+            int i = 0;
+            int aantalRaak = 0;
+            boolean gewonnen=false;
             while(i==0){
                 System.out.println("Hoe is je beurt gegaan?");
                 System.out.println("(1) Alles mis :(");
                 System.out.println("(2) Eén raak");
                 System.out.println("(3) Twee raak");
                 System.out.println("(4) Alles raak! :D");
-                boolean gewonnen=false;
-                if(!gewonnen){
-                int antwoordBeurt=scanner.nextInt();
+                if(!gewonnen) {
+                    int antwoordBeurt = scanner.nextInt();
 
-                switch(antwoordBeurt) {
-                    case 1:
-                        Spel spel1 = new Spel("alles mis");
-                        spel1.allesMis();
-                        break;
-                    case 2:
-                        Spel spel2 = new Spel("1 raak");
-                        spel2.éénRaak();
-                        aantalRaak+=1;
-                        break;
-                    case 3:
-                        Spel spel3 = new Spel("2 raak");
-                        spel3.tweeRaak();
-                        aantalRaak+=2;
-                        break;
-                    case 4:
-                        Spel spel4 = new Spel("3 raak");
-                        spel4.allesRaak();
-                        aantalRaak+=3;
-                        break;
-                }
+                    switch (antwoordBeurt) {
+                        case 1:
+                            Spel.allesMis();
+                            break;
+                        case 2:
+                            Spel.éénRaak();
+                            aantalRaak = aantalRaak + 1;
+                            break;
+                        case 3:
+                            Spel.tweeRaak();
+                            aantalRaak = aantalRaak + 2;
+                            break;
+                        case 4:
+                            Spel.allesRaak();
+                            aantalRaak = aantalRaak + 3;
+                            break;
+                    }
                 }
                 if(aantalRaak>=20){
                     gewonnen=true;
+                    i=1;
                 }
             }
+            System.out.println("Je hebt gewonnen!");
+            scanner.close();
             break;
 
         case "nee":
@@ -58,82 +58,77 @@ public class Main {
     }
 }
 class Beurt{
-    Dart dart1;
-    Dart dart2;
-    Dart dart3;
+    private Dart worp1;
+    private Dart worp2;
+    private Dart worp3;
 
     Beurt(Dart dart1, Dart dart2, Dart dart3){
-
-        this.dart1 = dart1;
-        this.dart2 = dart2;
-        this.dart3 = dart3;
+        this.worp1 = worp1;
+        this.worp2 = worp2;
+        this.worp3 = worp3;
     }
 
-    public void allesMis(){
-        Dart dart1 = new Dart(false);
-        Dart dart2 = new Dart(false);
-        Dart dart3 = new Dart(false);
+    public Dart getWorp1(){
+        return worp1;
     }
-    public void éénRaak(){
-        Dart dart1 = new Dart(true);
-        Dart dart2 = new Dart(false);
-        Dart dart3 = new Dart(false);
+    public Dart getDart2(){
+        return worp2;
     }
-    public void tweeRaak(){
-        Dart dart1 = new Dart(true);
-        Dart dart2 = new Dart(true);
-        Dart dart3 = new Dart(false);
+    public Dart getDart3(){
+        return worp3;
     }
-    public void allesRaak(){
-        Dart dart1 = new Dart(true);
-        Dart dart2 = new Dart(true);
-        Dart dart3 = new Dart(true);
-    }
-
-
 }
 
 class Spel {
-    Beurt beurt;
-    String beurt1;
-    Spel(String beurt1){
-        this.beurt1=beurt1;
+    public static ArrayList<Beurt> beurt = new ArrayList<>();
+
+    Spel(ArrayList<Beurt> beurt){
+        this.beurt=beurt;
     }
-    public Beurt allesMis(){
+
+    public static Beurt allesMis(){
         Dart dart1 = new Dart(false);
         Dart dart2 = new Dart(false);
         Dart dart3 = new Dart(false);
         Beurt beurtTypeAllesMis = new Beurt(dart1, dart2, dart3);
+        beurt.add(beurtTypeAllesMis);
         return beurtTypeAllesMis;
     }
-    public Beurt éénRaak(){
+    public static Beurt éénRaak(){
         Dart dart1 = new Dart(true);
         Dart dart2 = new Dart(false);
         Dart dart3 = new Dart(false);
         Beurt beurtTypeEénRaak = new Beurt(dart1, dart2, dart3);
+        beurt.add(beurtTypeEénRaak);
         return beurtTypeEénRaak;
     }
-    public Beurt tweeRaak(){
+    public static Beurt tweeRaak(){
         Dart dart1 = new Dart(true);
         Dart dart2 = new Dart(true);
         Dart dart3 = new Dart(false);
         Beurt beurtTypeTweeRaak = new Beurt(dart1, dart2, dart3);
+        beurt.add(beurtTypeTweeRaak);
         return beurtTypeTweeRaak;
     }
-    public Beurt allesRaak(){
+    public static Beurt allesRaak(){
         Dart dart1 = new Dart(true);
         Dart dart2 = new Dart(true);
         Dart dart3 = new Dart(true);
         Beurt beurtTypeAllesRaak = new Beurt(dart1, dart2, dart3);
+        beurt.add(beurtTypeAllesRaak);
         return beurtTypeAllesRaak;
     }
 }
 
 class Dart{
-    boolean hit;
+    boolean dart;
 
-    Dart(boolean hit){
-        this.hit=hit;
+    Dart(boolean dart){
+        this.dart=dart;
+    }
+
+    public boolean getDart(){
+        return dart;
     }
 
 }
