@@ -62,7 +62,7 @@ class Beurt{
     private Dart worp2;
     private Dart worp3;
 
-    Beurt(Dart dart1, Dart dart2, Dart dart3){
+    Beurt(Dart worp1, Dart worp2, Dart worp3){
         this.worp1 = worp1;
         this.worp2 = worp2;
         this.worp3 = worp3;
