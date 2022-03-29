@@ -1,6 +1,7 @@
 package com.company;
 import java.util.ArrayList;
 import java.util.Scanner;
+import org.junit.Test;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,6 +17,8 @@ public class Main {
             int aantalRaak = 0;
             boolean gewonnen=false;
             while(i==0){
+                System.out.println("Momenteel heb je er "+aantalRaak+" al raak gegooid");
+                System.out.println("---------------");
                 System.out.println("Hoe is je beurt gegaan?");
                 System.out.println("(1) Alles mis :(");
                 System.out.println("(2) Eén raak");
@@ -47,8 +50,9 @@ public class Main {
                     i=1;
                 }
             }
-            System.out.println("Je hebt gewonnen!");
             scanner.close();
+            StatistiekSpel totaalBeurten = new StatistiekSpel(Spel.beurt.size(), 20);
+            totaalBeurten.printUitslag();
             break;
 
         case "nee":
@@ -138,5 +142,36 @@ class BerekeningStatistiek{
 }
 
 class StatistiekSpel{
+    private int totaalBeurten;
+    private int totaalRaak;
 
+    StatistiekSpel(int totaalBeurten, int totaalRaak){
+        this.totaalBeurten = totaalBeurten;
+        this.totaalRaak=totaalRaak;
+    }
+    public void statistiekGemiddeldeRaak(){
+
+    }
+
+    public void printUitslag(){
+        System.out.println("Je hebt gewonnen!");
+        System.out.println("Je hebt er dit spel "+totaalBeurten+" beurten over gedaan en daarmee heb je er "+totaalRaak+" raak gegooid");
+    }
+
+}
+
+class Testing{
+    @Test
+    public void testGemiddeldeRaak(){
+
+    }
+
+    @Test
+    public void testRaakGegooid(){
+
+    }
+
+    @Test void beurtGespeeld(){
+
+    }
 }
