@@ -167,7 +167,7 @@ class StatistiekGemiddeldeRaak extends StatistiekSpel{
     public void printUitslag(){
         double x = totaalBeurten;
         double y = totaalRaak;
-        System.out.printf("Je hebt dit spel gemiddeld '%3.2f' Darts raak gegooid per beurt", gemiddeldRaakPerBeurt(x, y));
+        System.out.printf("Je hebt dit spel gemiddeld %3.1f Darts raak gegooid per beurt", gemiddeldRaakPerBeurt(x, y));
     }
 
     public double gemiddeldRaakPerBeurt(double beurten, double raak){
