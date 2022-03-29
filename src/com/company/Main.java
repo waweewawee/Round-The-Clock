@@ -51,7 +51,10 @@ public class Main {
                 }
             }
             scanner.close();
-            StatistiekSpel totaalBeurten = new StatistiekSpel(Spel.beurt.size(), 20);
+            StatistiekSpel totaalBeurten = new StatistiekSpel(Spel.beurt.size(), aantalRaak);
+            System.out.println("Je hebt gewonnen!");
+            totaalBeurten.printUitslag();
+            totaalBeurten = new StatistiekGemiddeldeRaak(Spel.beurt.size(), aantalRaak);
             totaalBeurten.printUitslag();
             break;
 
@@ -137,27 +140,37 @@ class Dart{
 
 }
 
-class BerekeningStatistiek{
-
-}
-
 class StatistiekSpel{
-    private int totaalBeurten;
-    private int totaalRaak;
+    public int totaalBeurten;
+    public int totaalRaak;
 
     StatistiekSpel(int totaalBeurten, int totaalRaak){
         this.totaalBeurten = totaalBeurten;
         this.totaalRaak=totaalRaak;
     }
-    public void statistiekGemiddeldeRaak(){
-
-    }
 
     public void printUitslag(){
-        System.out.println("Je hebt gewonnen!");
+        System.out.println();
         System.out.println("Je hebt er dit spel "+totaalBeurten+" beurten over gedaan en daarmee heb je er "+totaalRaak+" raak gegooid");
+        System.out.println();
     }
 
+}
+
+class StatistiekGemiddeldeRaak extends StatistiekSpel{
+    StatistiekGemiddeldeRaak(int totaalBeurten, int totaalRaak) {
+        super(totaalBeurten, totaalRaak);
+    }
+    @Override
+    public void printUitslag(){
+        double x = totaalBeurten;
+        double y = totaalRaak;
+        System.out.printf("Je hebt dit spel gemiddeld '%3.2f' Darts raak gegooid per beurt", gemiddeldRaakPerBeurt(x, y));
+    }
+    public double gemiddeldRaakPerBeurt(double beurten, double raak){
+        double gemiddeldRaakPerBeurt=raak/beurten;
+        return gemiddeldRaakPerBeurt;
+    }
 }
 
 class Testing{
