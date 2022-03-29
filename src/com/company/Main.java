@@ -93,10 +93,6 @@ class Beurt{
 class Spel {
     public static ArrayList<Beurt> beurt = new ArrayList<>();
 
-    Spel(ArrayList<Beurt> beurt){
-        this.beurt=beurt;
-    }
-
     public static Beurt allesMis(){
         Dart dart1 = new Dart(false);
         Dart dart2 = new Dart(false);
