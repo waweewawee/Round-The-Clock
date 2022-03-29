@@ -27,9 +27,9 @@ public class Testing {
         Dart testWorp3 = new Dart(true);
         Beurt testAllesRaakGegooid = new Beurt(testWorp1, testWorp2, testWorp3);
         //Act
-        boolean verwachteResultaat1=testAllesRaakGegooid.getWorp1().dart;
-        boolean verwachteResultaat2=testAllesRaakGegooid.getWorp2().dart;
-        boolean verwachteResultaat3=testAllesRaakGegooid.getWorp3().dart;
+        boolean verwachteResultaat1=testAllesRaakGegooid.getWorp1().getDart();
+        boolean verwachteResultaat2=testAllesRaakGegooid.getWorp2().getDart();
+        boolean verwachteResultaat3=testAllesRaakGegooid.getWorp3().getDart();
         //Assert
         assertTrue(verwachteResultaat1);
         assertTrue(verwachteResultaat2);
