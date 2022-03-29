@@ -132,7 +132,7 @@ class Spel {
 }
 
 class Dart{
-    boolean dart;
+    private boolean dart;
 
     Dart(boolean dart){
         this.dart=dart;
