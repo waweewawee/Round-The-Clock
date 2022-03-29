@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertEquals;
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -53,7 +55,9 @@ public class Main {
             scanner.close();
             StatistiekSpel totaalBeurten = new StatistiekSpel(Spel.beurt.size(), aantalRaak);
             System.out.println("Je hebt gewonnen!");
+            System.out.println();
             totaalBeurten.printUitslag();
+            System.out.println();
             totaalBeurten = new StatistiekGemiddeldeRaak(Spel.beurt.size(), aantalRaak);
             totaalBeurten.printUitslag();
             break;
@@ -78,10 +82,10 @@ class Beurt{
     public Dart getWorp1(){
         return worp1;
     }
-    public Dart getDart2(){
+    public Dart getWorp2(){
         return worp2;
     }
-    public Dart getDart3(){
+    public Dart getWorp3(){
         return worp3;
     }
 }
@@ -150,9 +154,7 @@ class StatistiekSpel{
     }
 
     public void printUitslag(){
-        System.out.println();
         System.out.println("Je hebt er dit spel "+totaalBeurten+" beurten over gedaan en daarmee heb je er "+totaalRaak+" raak gegooid");
-        System.out.println();
     }
 
 }
@@ -167,24 +169,10 @@ class StatistiekGemiddeldeRaak extends StatistiekSpel{
         double y = totaalRaak;
         System.out.printf("Je hebt dit spel gemiddeld '%3.2f' Darts raak gegooid per beurt", gemiddeldRaakPerBeurt(x, y));
     }
+
     public double gemiddeldRaakPerBeurt(double beurten, double raak){
         double gemiddeldRaakPerBeurt=raak/beurten;
         return gemiddeldRaakPerBeurt;
     }
 }
 
-class Testing{
-    @Test
-    public void testGemiddeldeRaak(){
-
-    }
-
-    @Test
-    public void testRaakGegooid(){
-
-    }
-
-    @Test void beurtGespeeld(){
-
-    }
-}
