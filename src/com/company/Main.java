@@ -68,27 +68,6 @@ public class Main {
     }
     }
 }
-class Beurt{
-    private Dart worp1;
-    private Dart worp2;
-    private Dart worp3;
-
-    Beurt(Dart worp1, Dart worp2, Dart worp3){
-        this.worp1 = worp1;
-        this.worp2 = worp2;
-        this.worp3 = worp3;
-    }
-
-    public Dart getWorp1(){
-        return worp1;
-    }
-    public Dart getWorp2(){
-        return worp2;
-    }
-    public Dart getWorp3(){
-        return worp3;
-    }
-}
 
 class Spel {
     public static ArrayList<Beurt> beurt = new ArrayList<>();
@@ -125,6 +104,50 @@ class Spel {
         beurt.add(beurtTypeAllesRaak);
         return beurtTypeAllesRaak;
     }
+    public boolean isAllesRaak(Beurt huidigBeurt){
+        boolean result = false;
+        if(huidigBeurt.getWorp1().getDart()){
+            if(huidigBeurt.getWorp2().getDart()){
+                if(huidigBeurt.getWorp3().getDart()){
+                    result = true;
+                }
+            }
+        }
+        return result;
+    }
+}
+
+class Beurt{
+    private Dart worp1;
+    private Dart worp2;
+    private Dart worp3;
+
+    Beurt(Dart worp1, Dart worp2, Dart worp3){
+        this.worp1 = worp1;
+        this.worp2 = worp2;
+        this.worp3 = worp3;
+    }
+
+    public boolean isAllesRaak(Beurt huidigBeurt){
+        if(huidigBeurt.getWorp1().getDart()){
+            if(huidigBeurt.getWorp2().getDart()){
+                if(huidigBeurt.getWorp3().getDart()){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public Dart getWorp1(){
+        return worp1;
+    }
+    public Dart getWorp2(){
+        return worp2;
+    }
+    public Dart getWorp3(){
+        return worp3;
+    }
 }
 
 class Dart{
@@ -137,6 +160,7 @@ class Dart{
     public boolean getDart(){
         return dart;
     }
+    public boolean setDart(boolean dart) {this.dart = dart; return dart;}
 
 }
 
@@ -170,5 +194,41 @@ class StatistiekGemiddeldeRaak extends StatistiekSpel{
         double gemiddeldRaakPerBeurt=raak/beurten;
         return gemiddeldRaakPerBeurt;
     }
+
+    public String wegingPrestatie(double gemiddeldRaak, int duurMinuten, boolean plezier, boolean herhaalbaar){
+        String result = "Je hebt niet gegooid";
+        if(gemiddeldRaak <= 3.0){
+            result= "Geweldig gegooid!";
+        }
+        if(gemiddeldRaak <= 2.0){
+            result= "Prima gegooid";
+        }
+        if(gemiddeldRaak <= 1.0){
+            result= "Matig gegooid";
+        }
+        result += " en ";
+        if(duurMinuten<15){
+            result += "snel gespeeld";
+        }
+        else{
+            result += "de tijd genomen";
+        }
+        result += " en ";
+        if(plezier){
+        result += "het was leuk";
+        }
+        else{
+        result += "het was niet leuk";
+        }
+        result += " en ";
+        if(herhaalbaar){
+        result+= "het is voor herhaling vatbaar";
+        }
+        else{
+        result += "het is niet voor herhaling vatbaar";
+        }
+        return result;
+    }
+
 }
 
