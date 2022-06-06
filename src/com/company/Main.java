@@ -19,9 +19,11 @@ public class Main {
         switch(antwoord){
             case 1:
                 Menu1 roundTheClock = new Menu1("gestartRoundTheClock");
+                roundTheClock.StartMenu();
                 break;
             case 2:
                 Menu2 dartHunter = new Menu2("gestartDartHunter");
+                dartHunter.StartMenu();
                 break;
 
         }

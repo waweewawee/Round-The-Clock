@@ -1,16 +1,25 @@
 package com.company;
 
+import java.util.Observable;
 import java.util.Scanner;
 
-public class Menu1 implements MenuSelectie, MenuStart, MenuStatistiek {
+public class Menu1 extends Observable implements MenuSelectie, MenuStart, MenuStatistiek {
     Scanner scanner = new Scanner(System.in);
+    private String notification;
     private String menu1;
     int aantalRaak = 0;
     Spel1 RoundTheClock = new Spel1("Round The Clock");
 
     Menu1(String menu1){
         this.menu1=menu1;
-        StartMenu();
+    }
+
+    public String getNotification(){return notification;}
+
+    public void setNotification(String notification) {
+        this.notification = notification;
+        setChanged();
+        notifyObservers();
     }
 
     @Override
@@ -27,9 +36,12 @@ public class Menu1 implements MenuSelectie, MenuStart, MenuStatistiek {
     @Override
     public void SelectieMenuSpel() {
         String antwoordJaNee = scanner.nextLine();
+        //geldig antwoord check
+        /*
         if (!antwoordJaNee.equals("ja") || !antwoordJaNee.equals("nee")) {
             System.out.println("Geen geldig antwoord, probeer opnieuw (ja of nee)");
         }
+         */
         switch(antwoordJaNee) {
                 case "ja":
                     int i = 0;
@@ -60,6 +72,10 @@ public class Menu1 implements MenuSelectie, MenuStart, MenuStatistiek {
                                 case 4:
                                     RoundTheClock.allesRaak();
                                     aantalRaak = aantalRaak + 3;
+                                    Menu2 observable = new Menu2(null);
+                                    Spel observer = new Spel2("observer");
+                                    observable.addObserver(observer);
+                                    observable.setNotification("Woah je hebt perfect gegooid! Geweldig!");
                                     break;
                             }
                         }

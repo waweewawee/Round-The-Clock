@@ -1,8 +1,11 @@
 package com.company;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import static com.company.StatistiekSpel.gespeeldSpel;
 
-public abstract class Spel {
+public abstract class Spel implements Observer {
     public void allesRaak(){
         Darts dart1 = new Darts(true);
         Darts dart2 = new Darts(true);
