@@ -1,8 +1,11 @@
 package com.company;
 
+import java.util.ArrayList;
+
 class StatistiekSpel {
     public int totaalBeurten;
     public int totaalRaak;
+    public static ArrayList<Beurt1> gespeeldSpel = new ArrayList<>();
 
     StatistiekSpel(int totaalBeurten, int totaalRaak) {
         this.totaalBeurten = totaalBeurten;

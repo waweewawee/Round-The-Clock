@@ -2,9 +2,12 @@ package com.company;
 
 import java.util.ArrayList;
 
+import static com.company.StatistiekSpel.gespeeldSpel;
+
 public class Spel1 {
+
     private String naam;
-    public static ArrayList<Beurt1> gespeeldSpel = new ArrayList<>();
+
     Spel1(String naam){
         this.naam=naam;
     }
@@ -40,5 +43,7 @@ public class Spel1 {
         Beurt1 beurt = new Beurt1(dart1, dart2, dart3);
         gespeeldSpel.add(beurt);
     }
+
+    public String getNaam(){return naam;}
 
 }

@@ -10,6 +10,7 @@ public class Menu1 implements MenuSelectie, MenuStart, MenuStatistiek {
 
     Menu1(String menu1){
         this.menu1=menu1;
+        StartMenu();
     }
 
     @Override
@@ -28,7 +29,6 @@ public class Menu1 implements MenuSelectie, MenuStart, MenuStatistiek {
         String antwoordJaNee = scanner.nextLine();
         if (!antwoordJaNee.equals("ja") || !antwoordJaNee.equals("nee")) {
             System.out.println("Geen geldig antwoord, probeer opnieuw (ja of nee)");
-            scanner.close();
         }
         switch(antwoordJaNee) {
                 case "ja":
@@ -81,12 +81,12 @@ public class Menu1 implements MenuSelectie, MenuStart, MenuStatistiek {
 
     @Override
     public void PrintStatistiek() {
-        StatistiekSpel totaalBeurten = new StatistiekSpel(Spel1.gespeeldSpel.size(), aantalRaak);
+        StatistiekSpel totaalBeurten = new StatistiekSpel(StatistiekSpel.gespeeldSpel.size(), aantalRaak);
         System.out.println("Je hebt gewonnen!");
         System.out.println();
         totaalBeurten.printUitslag();
         System.out.println();
-        totaalBeurten = new StatistiekGemiddeldeRaak(Spel1.gespeeldSpel.size(), aantalRaak);
+        totaalBeurten = new StatistiekGemiddeldeRaak(StatistiekSpel.gespeeldSpel.size(), aantalRaak);
         totaalBeurten.printUitslag();
     }
 
