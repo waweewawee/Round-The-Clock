@@ -17,6 +17,7 @@ class StatistiekGemiddeldeRaak extends StatistiekSpel {
         return gemiddeldRaakPerBeurt;
     }
 
+    /* //OPT3 testing opdracht
     public String wegingPrestatie(double gemiddeldRaak, int duurMinuten, boolean plezier, boolean herhaalbaar) {
         String result = "Je hebt niet gegooid";
         if (gemiddeldRaak <= 3.0) {
@@ -47,6 +48,6 @@ class StatistiekGemiddeldeRaak extends StatistiekSpel {
             result += "het is niet voor herhaling vatbaar";
         }
         return result;
-    }
+    }*/
 
 }
