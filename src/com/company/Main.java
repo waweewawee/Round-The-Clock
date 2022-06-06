@@ -31,18 +31,18 @@ public class Main {
 
                     switch (antwoordBeurt) {
                         case 1:
-                            Spel.allesMis();
+                            Spel1.allesMis();
                             break;
                         case 2:
-                            Spel.éénRaak();
+                            Spel1.éénRaak();
                             aantalRaak = aantalRaak + 1;
                             break;
                         case 3:
-                            Spel.tweeRaak();
+                            Spel1.tweeRaak();
                             aantalRaak = aantalRaak + 2;
                             break;
                         case 4:
-                            Spel.allesRaak();
+                            Spel1.allesRaak();
                             aantalRaak = aantalRaak + 3;
                             break;
                     }
@@ -53,12 +53,12 @@ public class Main {
                 }
             }
             scanner.close();
-            StatistiekSpel totaalBeurten = new StatistiekSpel(Spel.beurt.size(), aantalRaak);
+            StatistiekSpel totaalBeurten = new StatistiekSpel(Spel1.beurt.size(), aantalRaak);
             System.out.println("Je hebt gewonnen!");
             System.out.println();
             totaalBeurten.printUitslag();
             System.out.println();
-            totaalBeurten = new StatistiekGemiddeldeRaak(Spel.beurt.size(), aantalRaak);
+            totaalBeurten = new StatistiekGemiddeldeRaak(Spel1.beurt.size(), aantalRaak);
             totaalBeurten.printUitslag();
             break;
 
@@ -67,168 +67,5 @@ public class Main {
             break;
     }
     }
-}
-
-class Spel {
-    public static ArrayList<Beurt> beurt = new ArrayList<>();
-
-    public static Beurt allesMis(){
-        Dart dart1 = new Dart(false);
-        Dart dart2 = new Dart(false);
-        Dart dart3 = new Dart(false);
-        Beurt beurtTypeAllesMis = new Beurt(dart1, dart2, dart3);
-        beurt.add(beurtTypeAllesMis);
-        return beurtTypeAllesMis;
-    }
-    public static Beurt éénRaak(){
-        Dart dart1 = new Dart(true);
-        Dart dart2 = new Dart(false);
-        Dart dart3 = new Dart(false);
-        Beurt beurtTypeEénRaak = new Beurt(dart1, dart2, dart3);
-        beurt.add(beurtTypeEénRaak);
-        return beurtTypeEénRaak;
-    }
-    public static Beurt tweeRaak(){
-        Dart dart1 = new Dart(true);
-        Dart dart2 = new Dart(true);
-        Dart dart3 = new Dart(false);
-        Beurt beurtTypeTweeRaak = new Beurt(dart1, dart2, dart3);
-        beurt.add(beurtTypeTweeRaak);
-        return beurtTypeTweeRaak;
-    }
-    public static Beurt allesRaak(){
-        Dart dart1 = new Dart(true);
-        Dart dart2 = new Dart(true);
-        Dart dart3 = new Dart(true);
-        Beurt beurtTypeAllesRaak = new Beurt(dart1, dart2, dart3);
-        beurt.add(beurtTypeAllesRaak);
-        return beurtTypeAllesRaak;
-    }
-    public boolean isAllesRaak(Beurt huidigBeurt){
-        boolean result = false;
-        if(huidigBeurt.getWorp1().getDart()){
-            if(huidigBeurt.getWorp2().getDart()){
-                if(huidigBeurt.getWorp3().getDart()){
-                    result = true;
-                }
-            }
-        }
-        return result;
-    }
-}
-
-class Beurt{
-    private Dart worp1;
-    private Dart worp2;
-    private Dart worp3;
-
-    Beurt(Dart worp1, Dart worp2, Dart worp3){
-        this.worp1 = worp1;
-        this.worp2 = worp2;
-        this.worp3 = worp3;
-    }
-
-    public boolean isAllesRaak(Beurt huidigBeurt){
-        if(huidigBeurt.getWorp1().getDart()){
-            if(huidigBeurt.getWorp2().getDart()){
-                if(huidigBeurt.getWorp3().getDart()){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public Dart getWorp1(){
-        return worp1;
-    }
-    public Dart getWorp2(){
-        return worp2;
-    }
-    public Dart getWorp3(){
-        return worp3;
-    }
-}
-
-class Dart{
-    private boolean dart;
-
-    Dart(boolean dart){
-        this.dart=dart;
-    }
-
-    public boolean getDart(){
-        return dart;
-    }
-    public boolean setDart(boolean dart) {this.dart = dart; return dart;}
-
-}
-
-class StatistiekSpel{
-    public int totaalBeurten;
-    public int totaalRaak;
-
-    StatistiekSpel(int totaalBeurten, int totaalRaak){
-        this.totaalBeurten = totaalBeurten;
-        this.totaalRaak=totaalRaak;
-    }
-
-    public void printUitslag(){
-        System.out.println("Je hebt er dit spel "+totaalBeurten+" beurten over gedaan en daarmee heb je er "+totaalRaak+" raak gegooid");
-    }
-
-}
-
-class StatistiekGemiddeldeRaak extends StatistiekSpel{
-    StatistiekGemiddeldeRaak(int totaalBeurten, int totaalRaak) {
-        super(totaalBeurten, totaalRaak);
-    }
-    @Override
-    public void printUitslag(){
-        double x = totaalBeurten;
-        double y = totaalRaak;
-        System.out.printf("Je hebt dit spel gemiddeld %3.1f Darts raak gegooid per beurt", gemiddeldRaakPerBeurt(x, y));
-    }
-
-    public double gemiddeldRaakPerBeurt(double beurten, double raak){
-        double gemiddeldRaakPerBeurt=raak/beurten;
-        return gemiddeldRaakPerBeurt;
-    }
-
-    public String wegingPrestatie(double gemiddeldRaak, int duurMinuten, boolean plezier, boolean herhaalbaar){
-        String result = "Je hebt niet gegooid";
-        if(gemiddeldRaak <= 3.0){
-            result= "Geweldig gegooid!";
-        }
-        if(gemiddeldRaak <= 2.0){
-            result= "Prima gegooid";
-        }
-        if(gemiddeldRaak <= 1.0){
-            result= "Matig gegooid";
-        }
-        result += " en ";
-        if(duurMinuten<15){
-            result += "snel gespeeld";
-        }
-        else{
-            result += "de tijd genomen";
-        }
-        result += " en ";
-        if(plezier){
-        result += "het was leuk";
-        }
-        else{
-        result += "het was niet leuk";
-        }
-        result += " en ";
-        if(herhaalbaar){
-        result+= "het is voor herhaling vatbaar";
-        }
-        else{
-        result += "het is niet voor herhaling vatbaar";
-        }
-        return result;
-    }
-
 }
 

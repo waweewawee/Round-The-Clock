@@ -81,10 +81,10 @@ public class Testing {
         ArrayList<Beurt> testBeurtenGespeeld = new ArrayList<>();
         int verwachteResultaat=4;
         //Act
-        testBeurtenGespeeld.add(Spel.allesMis());
-        testBeurtenGespeeld.add(Spel.éénRaak());
-        testBeurtenGespeeld.add(Spel.tweeRaak());
-        testBeurtenGespeeld.add(Spel.allesRaak());
+        testBeurtenGespeeld.add(Spel1.allesMis());
+        testBeurtenGespeeld.add(Spel1.éénRaak());
+        testBeurtenGespeeld.add(Spel1.tweeRaak());
+        testBeurtenGespeeld.add(Spel1.allesRaak());
         int testResultaat = testBeurtenGespeeld.size();
         //Assert
         assertEquals(verwachteResultaat, testResultaat);
