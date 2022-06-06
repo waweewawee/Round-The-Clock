@@ -18,8 +18,8 @@ public class Menu2 implements MenuSelectie, MenuStart, MenuStatistiek {
         System.out.println("Welkom bij Dart Hunter");
         System.out.println();
         System.out.println("Bij Dart Hunter krijg je een random getal.");
-        System.out.println("Vervolgens moet je in het vak van dat getal gooien om een punt te krijgen.");
-        System.out.println("Je krijgt 1 kans per beurt, de eerste tot 10 punten wint!");
+        System.out.println("Vervolgens moet je in het vak van dat getal gooien om punten te krijgen");
+        System.out.println("Je krijgt 3 kansen per beurt, de eerste tot 20 punten wint!");
         System.out.println();
         System.out.println("Start het spel? (ja/nee)");
         SelectieMenuSpel();
@@ -39,22 +39,32 @@ public class Menu2 implements MenuSelectie, MenuStart, MenuStatistiek {
                     System.out.println("Momenteel heb je " + aantalRaak + " punten");
                     System.out.println("---------------");
                     System.out.println("Je getal voor deze worp is: "+DartHunter.randomGetal());
-                    System.out.println("(1) Raak!");
-                    System.out.println("(2) Mis!");
+                    System.out.println("(1) Alles mis :(");
+                    System.out.println("(2) Eén raak");
+                    System.out.println("(3) Twee raak");
+                    System.out.println("(4) Alles raak! :D");
                     if (!gewonnen) {
                         int antwoordBeurt = scanner.nextInt();
 
                         switch (antwoordBeurt) {
                             case 1:
-                                DartHunter.addBeurtRaak();
-                                aantalRaak = aantalRaak + 1;
+                                DartHunter.allesMis();
                                 break;
                             case 2:
-                                DartHunter.addBeurtMis();
+                                DartHunter.éénRaak();
+                                aantalRaak = aantalRaak + 1;
+                                break;
+                            case 3:
+                                DartHunter.tweeRaak();
+                                aantalRaak = aantalRaak + 2;
+                                break;
+                            case 4:
+                                DartHunter.allesRaak();
+                                aantalRaak = aantalRaak + 3;
                                 break;
                         }
                     }
-                    if (aantalRaak >= 10) {
+                    if (aantalRaak >= 20) {
                         gewonnen = true;
                         i = 1;
                         PrintStatistiek();
