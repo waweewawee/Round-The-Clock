@@ -21,7 +21,12 @@ public class Menu1 extends Observable implements MenuSelectie, MenuStart, MenuSt
         setChanged();
         notifyObservers();
     }
-
+    public void StartTekst(){
+        System.out.println("Welk spel wilt u spelen?");
+        System.out.println("Selectie: ");
+        System.out.println("1. Round The Clock");
+        System.out.println("2. Dart Hunter");
+    }
     @Override
     public void StartMenu() {
         System.out.println("Welkom bij Round The Clock");
@@ -36,12 +41,6 @@ public class Menu1 extends Observable implements MenuSelectie, MenuStart, MenuSt
     @Override
     public void SelectieMenuSpel() {
         String antwoordJaNee = scanner.nextLine();
-        //geldig antwoord check
-        /*
-        if (!antwoordJaNee.equals("ja") || !antwoordJaNee.equals("nee")) {
-            System.out.println("Geen geldig antwoord, probeer opnieuw (ja of nee)");
-        }
-         */
         switch(antwoordJaNee) {
                 case "ja":
                     int i = 0;
@@ -55,44 +54,41 @@ public class Menu1 extends Observable implements MenuSelectie, MenuStart, MenuSt
                         System.out.println("(3) Twee raak");
                         System.out.println("(4) Alles raak! :D");
                         if (!gewonnen) {
-                            int antwoordBeurt = scanner.nextInt();
-
-                            switch (antwoordBeurt) {
-                                case 1:
-                                    RoundTheClock.allesMis();
-                                    break;
-                                case 2:
-                                    RoundTheClock.éénRaak();
-                                    aantalRaak = aantalRaak + 1;
-                                    break;
-                                case 3:
-                                    RoundTheClock.tweeRaak();
-                                    aantalRaak = aantalRaak + 2;
-                                    break;
-                                case 4:
-                                    RoundTheClock.allesRaak();
-                                    aantalRaak = aantalRaak + 3;
-                                    Menu2 observable = new Menu2(null);
-                                    Spel observer = new Spel2("observer");
-                                    observable.addObserver(observer);
-                                    observable.setNotification("Woah je hebt perfect gegooid! Geweldig!");
-                                    break;
-                            }
+                            beurtMenu();
                         }
                         if (aantalRaak >= 20) {
                             gewonnen = true;
                             i = 1;
                             PrintStatistiek();
-                        }
-                    }
-                    scanner.close();
+                        }}
                     break;
-
                 case "nee":
-                    scanner.close();
                     break;
+        }}
+
+    public void beurtMenu(){
+        int antwoordBeurt = scanner.nextInt();
+        switch (antwoordBeurt) {
+            case 1:
+                RoundTheClock.allesMis();
+                break;
+            case 2:
+                RoundTheClock.éénRaak();
+                aantalRaak = aantalRaak + 1;
+                break;
+            case 3:
+                RoundTheClock.tweeRaak();
+                aantalRaak = aantalRaak + 2;
+                break;
+            case 4:
+                RoundTheClock.allesRaak();
+                aantalRaak = aantalRaak + 3;
+                Menu2 observable = new Menu2(null);
+                Spel observer = new Spel2("observer");
+                observable.addObserver(observer);
+                observable.setNotification("Woah je hebt perfect gegooid! Geweldig!");
+                break;
         }
-        scanner.close();
     }
 
     @Override
