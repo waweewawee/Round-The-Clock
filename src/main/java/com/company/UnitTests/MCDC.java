@@ -1,3 +1,5 @@
+package com.company.UnitTests;
+
 import com.company.Beurt1;
 import com.company.Darts;
 import com.company.StatistiekGemiddeldeRaak;

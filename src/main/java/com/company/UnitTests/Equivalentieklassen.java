@@ -1,3 +1,5 @@
+package com.company.UnitTests;
+
 import com.company.StatistiekGemiddeldeRaak;
 import org.junit.Test;
 
