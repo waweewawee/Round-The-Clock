@@ -30,17 +30,4 @@ public class Spel1 extends Spel {
         System.out.println("Woah je hebt perfect gegooid! Geweldig!");
     }
 
-    //Voor testontwerp opdracht OPT3 coverages
-    public boolean isAllesRaak(Beurt1 huidigBeurt){
-        boolean result = false;
-        if(huidigBeurt.getDart1().getDart1()){
-            if(huidigBeurt.getDart2().getDart1()){
-                if(huidigBeurt.getDart3().getDart1()){
-                    result = true;
-                }
-            }
-        }
-        return result;
-    }
-
 }
