@@ -16,4 +16,6 @@ public class Beurt1 {
     public Darts getDart2() {return dart2;}
 
     public Darts getDart3() {return dart3;}
+
+
 }

@@ -1,7 +1,7 @@
 package com.company;
 
-class StatistiekGemiddeldeRaak extends StatistiekSpel {
-    StatistiekGemiddeldeRaak(int totaalBeurten, int totaalRaak) {
+public class StatistiekGemiddeldeRaak extends StatistiekSpel {
+    public StatistiekGemiddeldeRaak(int totaalBeurten, int totaalRaak) {
         super(totaalBeurten, totaalRaak);
     }
 
@@ -17,7 +17,23 @@ class StatistiekGemiddeldeRaak extends StatistiekSpel {
         return gemiddeldRaakPerBeurt;
     }
 
-    /* //OPT3 testing opdracht
+    //Testontwerp opdracht OPT3 Equivalentieklassen en randwaarden
+    public String wegingGemiddeldeRaak(double gemiddeldRaak){
+        String result = "Je hebt niet gegooid";
+        if(gemiddeldRaak <= 3.0){
+            result= "Geweldig gegooid!";
+        }
+        if(gemiddeldRaak <= 2.0){
+            result= "Prima gegooid";
+        }
+        if(gemiddeldRaak <= 1.0){
+            result= "Matig gegooid";
+        }
+        return result;
+    }
+
+
+    //OPT3 testing opdracht
     public String wegingPrestatie(double gemiddeldRaak, int duurMinuten, boolean plezier, boolean herhaalbaar) {
         String result = "Je hebt niet gegooid";
         if (gemiddeldRaak <= 3.0) {
@@ -48,6 +64,6 @@ class StatistiekGemiddeldeRaak extends StatistiekSpel {
             result += "het is niet voor herhaling vatbaar";
         }
         return result;
-    }*/
+    }
 
 }
