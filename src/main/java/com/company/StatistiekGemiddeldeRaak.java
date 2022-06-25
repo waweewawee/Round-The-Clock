@@ -33,7 +33,7 @@ public class StatistiekGemiddeldeRaak extends StatistiekSpel {
     }
 
 
-    //OPT3 testing opdracht
+    //OPT3 testing opdracht pairwise testing
     public String wegingPrestatie(double gemiddeldRaak, int duurMinuten, boolean plezier, boolean herhaalbaar) {
         String result = "Je hebt niet gegooid";
         if (gemiddeldRaak <= 3.0) {
