@@ -38,7 +38,7 @@ public class Equivalentieklassen {
         assertEquals(testResultaat3, verwachtResultaat3);
     }
     @Test
-    public void wegingGemiddeldeRaak_matigGegooid11_true(){
+    public void wegingGemiddeldeRaak_primaGegooid11_true(){
         //Arrange
         StatistiekGemiddeldeRaak testWeging = new StatistiekGemiddeldeRaak(0,0);
         String testResultaat4="Prima gegooid";
@@ -48,7 +48,7 @@ public class Equivalentieklassen {
         assertEquals(testResultaat4, verwachtResultaat4);
     }
     @Test
-    public void wegingGemiddeldeRaak_matigGegooid15_true(){
+    public void wegingGemiddeldeRaak_primaGegooid15_true(){
         //Arrange
         StatistiekGemiddeldeRaak testWeging = new StatistiekGemiddeldeRaak(0,0);
         String testResultaat5="Prima gegooid";
@@ -58,7 +58,7 @@ public class Equivalentieklassen {
         assertEquals(testResultaat5, verwachtResultaat5);
     }
     @Test
-    public void wegingGemiddeldeRaak_matigGegooid20_true(){
+    public void wegingGemiddeldeRaak_primaGegooid20_true(){
         //Arrange
         StatistiekGemiddeldeRaak testWeging = new StatistiekGemiddeldeRaak(0,0);
         String testResultaat6="Prima gegooid";
@@ -68,7 +68,7 @@ public class Equivalentieklassen {
         assertEquals(testResultaat6, verwachtResultaat6);
     }
     @Test
-    public void wegingGemiddeldeRaak_matigGegooid21_true(){
+    public void wegingGemiddeldeRaak_geweldigGegooid21_true(){
         //Arrange
         StatistiekGemiddeldeRaak testWeging = new StatistiekGemiddeldeRaak(0,0);
         String testResultaat7="Geweldig gegooid!";
@@ -78,7 +78,7 @@ public class Equivalentieklassen {
         assertEquals(testResultaat7, verwachtResultaat7);
     }
     @Test
-    public void wegingGemiddeldeRaak_matigGegooid25_true(){
+    public void wegingGemiddeldeRaak_geweldigGegooid25_true(){
         //Arrange
         StatistiekGemiddeldeRaak testWeging = new StatistiekGemiddeldeRaak(0,0);
         String testResultaat8="Geweldig gegooid!";
