@@ -3,23 +3,14 @@ package com.company;
 import java.util.Observable;
 import java.util.Scanner;
 
-public class Menu2 extends Observable implements MenuSelectie, MenuStart, MenuStatistiek {
+public class Menu2 implements MenuSelectie, MenuStart, MenuStatistiek {
     Scanner scanner = new Scanner(System.in);
-    private String notification;
     private String menu2;
     int aantalRaak = 0;
     Spel2 DartHunter = new Spel2("Dart Hunter");
 
     Menu2(String menu2){
         this.menu2=menu2;
-    }
-
-    public String getNotification(){return notification;}
-
-    public void setNotification(String notification){
-        this.notification=notification;
-        setChanged();
-        notifyObservers();
     }
 
     @Override
@@ -80,10 +71,7 @@ public class Menu2 extends Observable implements MenuSelectie, MenuStart, MenuSt
             case 4:
                 DartHunter.allesRaak();
                 aantalRaak = aantalRaak + 3;
-                Menu2 observable = new Menu2(null);
-                Spel observer = new Spel2("observer");
-                observable.addObserver(observer);
-                observable.setNotification("Woah je hebt perfect gegooid! Geweldig!");
+                System.out.println("Woah je hebt perfect gegooid! Geweldig!");
                 break;
         }
     }

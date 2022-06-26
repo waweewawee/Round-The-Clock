@@ -2,11 +2,11 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Observable;
+import java.util.Observer;
 
 import static com.company.StatistiekSpel.gespeeldSpel;
 
-public class Spel1 extends Spel {
-    private Menu2 notification;
+public class Spel1 extends Spel implements Observer {
     private String naam;
 
     Spel1(String naam){
@@ -26,8 +26,8 @@ public class Spel1 extends Spel {
 
     @Override
     public void update(Observable o, Object arg) {
-        notification=(Menu2) o;
-        System.out.println("Woah je hebt perfect gegooid! Geweldig!");
+        System.out.println("Het is Koningsdag, dan mag je niet spelen.");
+        System.exit(0);
     }
 
 }
