@@ -8,14 +8,13 @@ import static com.company.StatistiekSpel.gespeeldSpel;
 
 public class Spel1 extends Spel implements Observer {
     private String naam;
-    Observable observable = new Observable();
-    Darts darts = new Darts(false);
+    Darts observable = new Darts(false);
 
     Spel1(String naam){
         this.naam=naam;
         observable.addObserver(this);
-        if(darts.isHetKoningsdag()){
-            darts.setNotification("oh hi");
+        if(observable.isHetKoningsdag()){
+            observable.setNotification("oh hi");
         }
     }
 

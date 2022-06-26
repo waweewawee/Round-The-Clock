@@ -7,7 +7,6 @@ public class Menu1 implements MenuSelectie, MenuStart, MenuStatistiek {
     Scanner scanner = new Scanner(System.in);
     private String menu1;
     int aantalRaak = 0;
-    Spel1 RoundTheClock = new Spel1("Round The Clock");
 
     Menu1(String menu1){
         this.menu1=menu1;
@@ -59,6 +58,7 @@ public class Menu1 implements MenuSelectie, MenuStart, MenuStatistiek {
         }}
 
     public void beurtMenu(){
+        Spel1 RoundTheClock = new Spel1("Round The Clock");
         int antwoordBeurt = scanner.nextInt();
         switch (antwoordBeurt) {
             case 1:

@@ -23,12 +23,12 @@ public class Darts extends Observable {
         DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM");
         LocalDate nu = LocalDate.now();
         String strNu = df.format(nu);
-        //if(strNu.equals("4/27")){
+        if(strNu.equals("4/27")){
             return true;
-        //}
-        //else{
-        //    return false;
-        //}
+        }
+        else{
+            return false;
+        }
     }
 
     String notification;

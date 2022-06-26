@@ -7,7 +7,6 @@ public class Menu2 implements MenuSelectie, MenuStart, MenuStatistiek {
     Scanner scanner = new Scanner(System.in);
     private String menu2;
     int aantalRaak = 0;
-    Spel2 DartHunter = new Spel2("Dart Hunter");
 
     Menu2(String menu2){
         this.menu2=menu2;
@@ -27,6 +26,7 @@ public class Menu2 implements MenuSelectie, MenuStart, MenuStatistiek {
 
     @Override
     public void SelectieMenuSpel() {
+        Spel2 DartHunter = new Spel2("Dart Hunter");
         String antwoordJaNee = scanner.nextLine();
         switch(antwoordJaNee) {
             case "ja":
@@ -54,6 +54,7 @@ public class Menu2 implements MenuSelectie, MenuStart, MenuStatistiek {
         }}
 
     public void beurtMenu(){
+        Spel2 DartHunter = new Spel2("Dart Hunter");
         int antwoordBeurt = scanner.nextInt();
 
         switch (antwoordBeurt) {
