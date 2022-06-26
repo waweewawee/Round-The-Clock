@@ -9,9 +9,11 @@ import static com.company.StatistiekSpel.gespeeldSpel;
 
 public class Spel2 extends Spel implements Observer {
     private String naam;
+    Darts darts = new Darts(false);
 
     Spel2(String naam){
         this.naam=naam;
+        //darts.addObserver(this);
     }
 
     public int randomGetal(){

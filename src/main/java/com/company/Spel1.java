@@ -8,9 +8,11 @@ import static com.company.StatistiekSpel.gespeeldSpel;
 
 public class Spel1 extends Spel implements Observer {
     private String naam;
+    Darts darts = new Darts(false);
 
     Spel1(String naam){
         this.naam=naam;
+        //darts.addObserver(this);
     }
 
     public String getNaam(){return naam;}

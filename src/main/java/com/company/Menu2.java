@@ -8,9 +8,11 @@ public class Menu2 implements MenuSelectie, MenuStart, MenuStatistiek {
     private String menu2;
     int aantalRaak = 0;
     Spel2 DartHunter = new Spel2("Dart Hunter");
+    Darts darts = new Darts(false);
 
     Menu2(String menu2){
         this.menu2=menu2;
+        darts.addObserver(DartHunter);
     }
 
     @Override

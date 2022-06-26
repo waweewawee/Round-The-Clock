@@ -8,9 +8,11 @@ public class Menu1 implements MenuSelectie, MenuStart, MenuStatistiek {
     private String menu1;
     int aantalRaak = 0;
     Spel1 RoundTheClock = new Spel1("Round The Clock");
+    Darts darts = new Darts(false);
 
     Menu1(String menu1){
         this.menu1=menu1;
+        darts.addObserver(RoundTheClock);
     }
 
     public void StartTekst(){
