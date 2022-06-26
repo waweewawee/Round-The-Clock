@@ -13,7 +13,7 @@ public class Spel2 extends Spel implements Observer {
 
     Spel2(String naam){
         this.naam=naam;
-        //darts.addObserver(this);
+        darts.addObserver(this);
     }
 
     public int randomGetal(){

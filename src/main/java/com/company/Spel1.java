@@ -12,7 +12,7 @@ public class Spel1 extends Spel implements Observer {
 
     Spel1(String naam){
         this.naam=naam;
-        //darts.addObserver(this);
+        darts.addObserver(this);
     }
 
     public String getNaam(){return naam;}
