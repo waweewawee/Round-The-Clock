@@ -19,13 +19,22 @@ public class Darts extends Observable {
 
     public boolean getDart1(){return dart1;}
 
-    public void isHetKoningsdag(){
+    public boolean isHetKoningsdag(){
         DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM");
         LocalDate nu = LocalDate.now();
         String strNu = df.format(nu);
         //if(strNu.equals("4/27")){
-            setChanged();
-            notifyObservers();
+            return true;
         //}
+        //else{
+        //    return false;
+        //}
+    }
+
+    String notification;
+    public void setNotification(String notification){
+        this.notification=notification;
+        setChanged();
+        notifyObservers();
     }
 }
