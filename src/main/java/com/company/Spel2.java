@@ -15,7 +15,7 @@ public class Spel2 extends Spel implements Observer {
         this.naam=naam;
         observable.addObserver(this);
         if(observable.isHetKoningsdag()){
-            observable.setNotification("oh hi");
+            observable.setNotification("Je mag niet spelen op koningsdag");
         }
     }
 
