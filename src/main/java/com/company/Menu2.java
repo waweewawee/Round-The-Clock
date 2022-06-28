@@ -3,7 +3,7 @@ package com.company;
 import java.util.Observable;
 import java.util.Scanner;
 
-public class Menu2 implements MenuSelectie, MenuStart, MenuStatistiek {
+public class Menu2 extends Menu implements MenuSelectie, MenuStart, MenuStatistiek {
     Scanner scanner = new Scanner(System.in);
     private String menu2;
     int aantalRaak = 0;
@@ -21,11 +21,11 @@ public class Menu2 implements MenuSelectie, MenuStart, MenuStatistiek {
         System.out.println("Je krijgt 3 kansen per beurt, de eerste tot 20 punten wint!");
         System.out.println();
         System.out.println("Start het spel? (ja/nee)");
-        SelectieMenuSpel();
+        //SelectieMenuSpel();
     }
 
     @Override
-    public void SelectieMenuSpel() {
+    public void SelectieMenuSpel2() {
         Spel2 DartHunter = new Spel2("Dart Hunter");
         String antwoordJaNee = scanner.nextLine();
         switch(antwoordJaNee) {
@@ -46,7 +46,6 @@ public class Menu2 implements MenuSelectie, MenuStart, MenuStatistiek {
                     if (aantalRaak >= 20) {
                         gewonnen = true;
                         i = 1;
-                        PrintStatistiek();
                     }}
                 break;
             case "nee":
@@ -75,17 +74,6 @@ public class Menu2 implements MenuSelectie, MenuStart, MenuStatistiek {
                 System.out.println("Woah je hebt perfect gegooid! Geweldig!");
                 break;
         }
-    }
-
-    @Override
-    public void PrintStatistiek() {
-        StatistiekSpel totaalBeurten = new StatistiekSpel(StatistiekSpel.gespeeldSpel.size(), aantalRaak);
-        System.out.println("Je hebt gewonnen!");
-        System.out.println();
-        totaalBeurten.printUitslag();
-        System.out.println();
-        totaalBeurten = new StatistiekGemiddeldeRaak(StatistiekSpel.gespeeldSpel.size(), aantalRaak);
-        totaalBeurten.printUitslag();
     }
 
     public String getMenu2(){return menu2;}

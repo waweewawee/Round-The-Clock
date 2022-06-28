@@ -14,10 +14,10 @@ public class Spel2 extends Spel implements Observer {
     Spel2(String naam){
         this.naam=naam;
         //Observer limiteren tot Spel1
-        /*observable.addObserver(this);
+        observable.addObserver(this);
         if(observable.isHetKoningsdag()){
             observable.setNotification("Je mag niet spelen op koningsdag");
-        }*/
+        }
     }
 
     @Override

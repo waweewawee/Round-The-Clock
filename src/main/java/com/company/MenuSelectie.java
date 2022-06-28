@@ -1,5 +1,5 @@
 package com.company;
 
 interface MenuSelectie {
-    void SelectieMenuSpel();
+    //void SelectieMenuSpel();
 }

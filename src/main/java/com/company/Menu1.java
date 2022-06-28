@@ -3,7 +3,7 @@ package com.company;
 import java.util.Observable;
 import java.util.Scanner;
 
-public class Menu1 implements MenuSelectie, MenuStart, MenuStatistiek {
+public class Menu1 extends Menu implements MenuSelectie, MenuStart, MenuStatistiek {
     Scanner scanner = new Scanner(System.in);
     private String menu1;
     int aantalRaak = 0;
@@ -12,12 +12,6 @@ public class Menu1 implements MenuSelectie, MenuStart, MenuStatistiek {
         this.menu1=menu1;
     }
 
-    public void StartTekst(){
-        System.out.println("Welk spel wilt u spelen?");
-        System.out.println("Selectie: ");
-        System.out.println("1. Round The Clock");
-        System.out.println("2. Dart Hunter");
-    }
     @Override
     public void StartMenu() {
         System.out.println("Welkom bij Round The Clock");
@@ -26,11 +20,11 @@ public class Menu1 implements MenuSelectie, MenuStart, MenuStatistiek {
         System.out.println("Van het begin tot het eind moet je in volgorde van 1 tot en met 20 gooien om te winnen");
         System.out.println();
         System.out.println("Start het spel? (ja/nee)");
-        SelectieMenuSpel();
+        //SelectieMenuSpel();
     }
 
     @Override
-    public void SelectieMenuSpel() {
+    public void SelectieMenuSpel1() {
         String antwoordJaNee = scanner.nextLine();
         switch(antwoordJaNee) {
                 case "ja":
@@ -50,7 +44,6 @@ public class Menu1 implements MenuSelectie, MenuStart, MenuStatistiek {
                         if (aantalRaak >= 20) {
                             gewonnen = true;
                             i = 1;
-                            PrintStatistiek();
                         }}
                     break;
                 case "nee":
