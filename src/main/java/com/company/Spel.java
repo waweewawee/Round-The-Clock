@@ -37,4 +37,8 @@ public abstract class Spel implements Observer {
         Beurt1 beurt = new Beurt1(dart1, dart2, dart3);
         gespeeldSpel.add(beurt);
     }
+
+    public int randomGetal(){
+        return 0;
+    }
 }

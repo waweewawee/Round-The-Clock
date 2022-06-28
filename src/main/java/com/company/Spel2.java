@@ -19,18 +19,10 @@ public class Spel2 extends Spel implements Observer {
         }
     }
 
+    @Override
     public int randomGetal(){
         int randomGetal = ThreadLocalRandom.current().nextInt(1, 20);
         return randomGetal;
-    }
-
-    @Override
-    public void allesRaak(){
-        Darts dart1 = new Darts(true);
-        Darts dart2 = new Darts(true);
-        Darts dart3 = new Darts(true);
-        Beurt1 beurt = new Beurt1(dart1, dart2, dart3);
-        gespeeldSpel.add(beurt);
     }
 
     @Override
