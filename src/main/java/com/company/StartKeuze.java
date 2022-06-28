@@ -7,7 +7,10 @@ public class StartKeuze {
     Menu2 menu2 = new Menu2("menu2");
     Scanner scanner = new Scanner(System.in);
     StartKeuze(){
-        menu1.StartTekst();
+        System.out.println("Welk spel wilt u spelen?");
+        System.out.println("Selectie: ");
+        System.out.println("1. Round The Clock");
+        System.out.println("2. Dart Hunter");
         int antwoord= scanner.nextInt();
         if(antwoord==1){
             menu1.menuVolgorde();
