@@ -25,7 +25,7 @@ public class Menu2 extends Menu implements MenuSelectie, MenuStart, MenuStatisti
     }
 
     @Override
-    public void SelectieMenuSpel2() {
+    public void SelectieMenuSpel() {
         Spel2 DartHunter = new Spel2("Dart Hunter");
         String antwoordJaNee = scanner.nextLine();
         switch(antwoordJaNee) {

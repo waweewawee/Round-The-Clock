@@ -24,7 +24,7 @@ public class Menu1 extends Menu implements MenuSelectie, MenuStart, MenuStatisti
     }
 
     @Override
-    public void SelectieMenuSpel1() {
+    public void SelectieMenuSpel() {
         String antwoordJaNee = scanner.nextLine();
         switch(antwoordJaNee) {
                 case "ja":
